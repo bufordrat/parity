@@ -32,4 +32,3 @@ let mult n m =
   | Odd n', Even m' -> Even (n' * m')
   | Even n', Even m' -> Even (n' * m')
   | Even n', Odd m' -> Even (n' * m')
-
