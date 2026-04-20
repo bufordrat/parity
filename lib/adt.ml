@@ -18,3 +18,18 @@ let add n m =
   | Odd n', Even m' -> Odd (n' + m')
   | Even n', Even m' -> Even (n' + m')
   | Even n', Odd m' -> Odd (n' + m')
+
+let sub n m =
+  match n, m with
+  | Odd n', Odd m' -> Even (n' - m')
+  | Odd n', Even m' -> Odd (n' - m')
+  | Even n', Even m' -> Even (n' - m')
+  | Even n', Odd m' -> Odd (n' - m')
+
+let mult n m =
+  match n, m with
+  | Odd n', Odd m' -> Odd (n' * m')
+  | Odd n', Even m' -> Even (n' * m')
+  | Even n', Even m' -> Even (n' * m')
+  | Even n', Odd m' -> Even (n' * m')
+
