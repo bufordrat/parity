@@ -29,3 +29,17 @@ let rec int_to_odd_opt : int -> odd number option =
      let+ next = int_to_odd_opt (n - 2)
      in ESucc (OSucc next)
   | _ -> None
+
+type any_number = Any : 'a number -> any_number
+
+let int_to_number_opt : int -> any_number option =
+  function
+  | 0 -> Some (Any Zero)
+  | n when n mod 2 = 0 ->
+     let ( let+ ) opt f = Option.map f opt in
+     let+ next = int_to_even_opt (n - 1)
+     in Any (ESucc next)
+  | n ->
+     let ( let+ ) opt f = Option.map f opt in
+     let+ next = int_to_odd_opt (n - 1)
+     in Any (OSucc next)
